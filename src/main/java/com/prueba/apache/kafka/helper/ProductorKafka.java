@@ -1,5 +1,6 @@
 package com.prueba.apache.kafka.helper;
 
+import com.prueba.apache.kafka.mensajeDTO.VehiculoMsj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -8,13 +9,16 @@ import org.springframework.stereotype.Component;
 public class ProductorKafka {
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, VehiculoMsj> vehiculoKafkaTemplate;
 
     private final String kafkaTopic = "test";
-
-    public void send(String message) {
-
-        kafkaTemplate.send(kafkaTopic, message);
+   
+    /**
+     *
+     * @param vehiculo
+     */
+    public void sendCustomMessage(VehiculoMsj vehiculo) {
+        vehiculoKafkaTemplate.send(kafkaTopic, vehiculo);
     }
 
 }
