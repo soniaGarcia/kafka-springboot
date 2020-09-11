@@ -1,6 +1,5 @@
 package com.prueba.apache.kafka.controlador;
 
-import com.prueba.apache.kafka.helper.ConsumidorKafka;
 import com.prueba.apache.kafka.helper.ProductorKafka;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +13,7 @@ public class Controlador {
 
     @Autowired
     private ProductorKafka productorKafka;
-    
-    @Autowired
-    private ConsumidorKafka consumidorKafka;
+
 
     @GetMapping("/{mensaje}")
     public String enviarMensaje(@PathVariable String mensaje) {
