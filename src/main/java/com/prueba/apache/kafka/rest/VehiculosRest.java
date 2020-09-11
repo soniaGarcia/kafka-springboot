@@ -43,7 +43,7 @@ public class VehiculosRest {
         persistVehiculo.descripcion= vehiculo.descripcion;
         persistVehiculo.llantas= vehiculo.llantas;
         persistVehiculo.marca= vehiculo.marca;
-        persistVehiculo.codigo=vehiculo.marca.substring(0,2)+""+vehiculo.color.substring(0,2);
+        persistVehiculo.codigo=vehiculo.marca.substring(0,2)+"-"+vehiculo.color.substring(0,2);
         persistVehiculo.pasajeros = vehiculo.pasajeros;
         persistVehiculo.puertas = vehiculo.puertas;
         persistVehiculo.ventanas = vehiculo.ventanas;
