@@ -21,7 +21,7 @@ public class KafkaProducerConfig {
     public ProducerFactory<String, String> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(
-          ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "http://apache-kafka-myproject.10.100.103.15.xip.io:9092");
+          ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "http://172.17.0.8:9092");
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, 
           StringSerializer.class);
         configProps.put(
