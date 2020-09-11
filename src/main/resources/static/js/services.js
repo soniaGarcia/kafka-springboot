@@ -18,7 +18,9 @@ app.controller('VehiculosController', ['$scope', '$http',
                         pasajeros: $scope.pasajeros,
                         asientos: $scope.asientos,
                         descripcion: $scope.descripcion,
-                        color: $scope.color
+                        color: $scope.color,
+                        marca: $scope.marca,
+                        precio: $scope.precio
                     }
             ).success(function (data) {
                 alert('Vehiculo creado correctamente');
