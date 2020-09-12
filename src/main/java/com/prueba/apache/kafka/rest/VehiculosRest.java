@@ -47,7 +47,7 @@ public class VehiculosRest {
         persistVehiculo.pasajeros = vehiculo.pasajeros;
         persistVehiculo.puertas = vehiculo.puertas;
         persistVehiculo.ventanas = vehiculo.ventanas;
-        
+        vehiculo.codigo = persistVehiculo.codigo;
         productorKafka.sendCustomMessage(vehiculo);
         vehiculoRepository.save(persistVehiculo);
     }
