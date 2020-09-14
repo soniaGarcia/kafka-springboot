@@ -11,7 +11,7 @@ public class ProductorKafka {
     @Autowired
     private KafkaTemplate<String, VehiculoMsj> vehiculoKafkaTemplate;
 
-    private final String kafkaTopic = "test";
+    private final String kafkaTopic = "detalle";
    
     /**
      *

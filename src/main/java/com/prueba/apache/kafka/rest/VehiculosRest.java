@@ -23,8 +23,8 @@ public class VehiculosRest {
 
     @Autowired
     VehiculoRepository vehiculoRepository;
-    
-     @Autowired
+
+    @Autowired
     private ProductorKafka productorKafka;
 
     @RequestMapping(method = RequestMethod.GET)
@@ -38,17 +38,18 @@ public class VehiculosRest {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public void addVehiculo(@RequestBody @Valid VehiculoMsj vehiculo) {
         Vehiculo persistVehiculo = new Vehiculo();
-        persistVehiculo.asientos=vehiculo.asientos;
-        persistVehiculo.color= vehiculo.color;
-        persistVehiculo.descripcion= vehiculo.descripcion;
-        persistVehiculo.llantas= vehiculo.llantas;
-        persistVehiculo.marca= vehiculo.marca;
-        persistVehiculo.codigo=vehiculo.marca.substring(0,2)+"-"+vehiculo.color.substring(0,2);
+        persistVehiculo.asientos = vehiculo.asientos;
+        persistVehiculo.color = vehiculo.color;
+        persistVehiculo.descripcion = vehiculo.descripcion;
+        persistVehiculo.llantas = vehiculo.llantas;
+        persistVehiculo.marca = vehiculo.marca;
+        persistVehiculo.codigo = vehiculo.marca.substring(0, 2) + "-" + vehiculo.color.substring(0, 2);
         persistVehiculo.pasajeros = vehiculo.pasajeros;
         persistVehiculo.puertas = vehiculo.puertas;
         persistVehiculo.ventanas = vehiculo.ventanas;
         vehiculo.codigo = persistVehiculo.codigo;
+        persistVehiculo = vehiculoRepository.save(persistVehiculo);
+        vehiculo.id = persistVehiculo.id;
         productorKafka.sendCustomMessage(vehiculo);
-        vehiculoRepository.save(persistVehiculo);
     }
 }
